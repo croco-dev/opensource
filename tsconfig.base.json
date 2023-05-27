@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@croco/event-controller": ["packages/event-controller/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

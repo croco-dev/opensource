@@ -1,0 +1,51 @@
+{
+  "name": "event-controller",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/event-controller/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/event-controller",
+        "main": "packages/event-controller/src/index.ts",
+        "tsConfig": "packages/event-controller/tsconfig.lib.json",
+        "assets": [],
+        "project": "packages/event-controller/package.json",
+        "compiler": "swc",
+        "generateExportsField": true,
+        "format": [
+          "cjs",
+          "esm"
+        ]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs event-controller {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/event-controller/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/event-controller/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
