@@ -2,13 +2,18 @@
   "name": "opensource",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "test:all": "nx run-many test --all",
+    "test": "nx test ",
+    "changeset": "changeset"
+  },
   "private": true,
   "dependencies": {
     "@swc/helpers": "~0.5.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.1",
     "@nx/jest": "16.2.2",
     "@nx/js": "16.2.2",
     "@nx/rollup": "16.2.2",
