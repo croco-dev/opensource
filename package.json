@@ -4,9 +4,12 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
+    "@nx/js": "16.2.2",
     "nx": "16.2.2",
-    "nx-cloud": "latest"
+    "nx-cloud": "latest",
+    "typescript": "5.0.4"
   }
 }
